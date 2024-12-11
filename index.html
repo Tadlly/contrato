@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Especial da Vitória 💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            padding: 30px;
+            animation: fadeIn 1s ease;
+        }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #ff5678;
+        }
+        p {
+            color: #555;
+            font-size: 16px;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 15px 0;
+            border: 2px solid #ffb6c1;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        button {
+            background-color: #ff5678;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'Pacifico', cursive;
+        }
+        button:hover {
+            background-color: #e04b66;
+        }
+        .hidden {
+            display: none;
+        }
+        #contract-page p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="login-page">
+        <h1>Bem-vinda, minha princesa! 💕</h1>
+        <p>Apenas um nome pode acessar este site especial 👀<br> Não coloque assentos ou letras maiúsculas.</p>
+        <input type="text" id="username" placeholder="Seu nome">
+        <button onclick="checkLogin()">Entrar</button>
+    </div>
+
+    <div class="container hidden" id="contract-page">
+        <h1>Contrato</h1>
+        <p>Eu, <span id="contract-name"></span>, prometo ser a pessoa mais feliz ao seu lado e amar você para sempre. ❤️</p>
+        <p>Este site foi feito especialmente para você. Obrigado por ter aparecido na minha vida, sou eternamente grat a Deus! ✨</p>
+        <input type="text" id="final-name" placeholder="Digite seu nome">
+        <button onclick="showLoveMessage()">Finalizar</button>
+    </div>
+
+    <div class="container hidden" id="love-page">
+        <h1 id="love-message"></h1>
+    </div>
+
+    <script>
+        function checkLogin() {
+            const username = document.getElementById('username').value.toLowerCase();
+            if (username === 'vitoria') {
+                document.getElementById('login-page').classList.add('hidden');
+                document.getElementById('contract-page').classList.remove('hidden');
+                document.getElementById('contract-name').textContent = username;
+            } else {
+                alert('Acesso negado! Este site é só para alguém muito especial.');
+            }
+        }
+
+        function showLoveMessage() {
+            const finalName = document.getElementById('final-name').value;
+            if (finalName) {
+                document.getElementById('contract-page').classList.add('hidden');
+                document.getElementById('love-page').classList.remove('hidden');
+                document.getElementById('love-message').textContent = `Eu te amo para sempre, ${finalName}! 💖`;
+            } else {
+                alert('Por favor, digite seu nome para finalizar.');
+            }
+        }
+    </script>
+</body>
+</html>
